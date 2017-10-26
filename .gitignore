@@ -27,3 +27,8 @@ hs_err_pid*
 .project
 .settings/
 home.iml
+
+/META-INF
+/upload
+/uploadfiles
+/WEB-INF
