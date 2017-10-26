@@ -28,7 +28,7 @@ hs_err_pid*
 .settings/
 home.iml
 
-META-INF
-upload
-uploadfiles
-WEB-INF
+META-INF/
+upload/
+uploadfiles/
+WEB-INF/
