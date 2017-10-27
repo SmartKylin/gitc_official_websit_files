@@ -161,6 +161,29 @@
   .zhanfont{display: block;font-weight: 600;color: #535353;font-size: 12px}
   .zhanziti{font-size: 12px}
 
+  .bj-banner-btn {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    z-index: 1000;
+    background: #fff;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+    right: 40px;
+    padding-top: 15px;
+    box-shadow: 0 0 20px 2px #ccc;
+  }
+
+  .bj-banner-btn.top {
+    bottom: 250px;
+  }
+
+  .bj-banner-btn.bottom{
+    bottom: 100px;
+  }
+
   /*适配轮播*/
   @media (max-width : 768px){
     /*加入麒麟会*/
@@ -249,6 +272,15 @@
   </div>-->
     <div class="swiper-wrapper">
       <div class="g-fullheight--xs g-bg-position--center swiper-slide" id="lv_open">
+        <div class="bj-banner-btn top" id="btn-buy-ticket">
+          <div>立即</div>
+          <div>购买</div>
+        </div>
+
+        <div class="bj-banner-btn bottom" id="btn-awards">
+          <div>奖项</div>
+          <div>评选</div>
+        </div>
       </div>
       <div class="g-fullheight--xs g-bg-position--center swiper-slide" id="awards">
       </div>
@@ -709,9 +741,21 @@
   </script>
   <script>
     $(function(){
-      $('#lv_open').on('click',function(){
-        window.location.href="https://www.bagevent.com/event/768490"
+      $('#btn-awards').click(function(event){
+        window.location.href="http://bj.thegitc.com/awards";
+        event.stopPropagation();
       })
+      $('#btn-buy-ticket').click(function(event){
+        window.location.href="https://www.bagevent.com/event/768490";
+        event.stopPropagation();
+      })
+      $('#lv_open').on('click',function(){
+        window.location.href="http://bj.thegitc.com/"
+      })
+      $('#awards').on('click', function(){
+        window.location.href="http://bj.thegitc.com/awards"
+      })
+     
     })
   </script>
   <script>
