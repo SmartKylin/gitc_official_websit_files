@@ -163,25 +163,28 @@
 
   .bj-banner-btn {
     position: fixed;
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     z-index: 1000;
     background: #fff;
     text-align: center;
-    font-size: 22px;
+    font-size: 15px;
     font-weight: 800;
     right: 40px;
-    padding-top: 15px;
+    padding-top: 10px;
     box-shadow: 0 0 20px 2px #ccc;
+  }
+  .bj-banner-btn>div {
+    line-height: 20px;
   }
 
   .bj-banner-btn.top {
-    bottom: 250px;
+    bottom: 200px;
   }
 
   .bj-banner-btn.bottom{
-    bottom: 100px;
+    bottom: 120px;
   }
 
   /*适配轮播*/
@@ -207,6 +210,15 @@
 </style>
 
 <body>
+  <div class="bj-banner-btn top" id="btn-buy-ticket">
+    <div>立即</div>
+    <div>购买</div>
+  </div>
+    
+  <div class="bj-banner-btn bottom" id="btn-awards">
+    <div>奖项</div>
+    <div>评选</div>
+  </div>
   <header class="navbar-fixed-top s-header js__header-sticky js__header-overlay">
     <div class="s-header__navbar">
       <div class="s-header__container">
@@ -270,17 +282,9 @@
       <div class="container" style="height: 100%"></div>
     </div>
   </div>-->
+
     <div class="swiper-wrapper">
       <div class="g-fullheight--xs g-bg-position--center swiper-slide" id="lv_open">
-        <div class="bj-banner-btn top" id="btn-buy-ticket">
-          <div>立即</div>
-          <div>购买</div>
-        </div>
-
-        <div class="bj-banner-btn bottom" id="btn-awards">
-          <div>奖项</div>
-          <div>评选</div>
-        </div>
       </div>
       <div class="g-fullheight--xs g-bg-position--center swiper-slide" id="awards">
       </div>
