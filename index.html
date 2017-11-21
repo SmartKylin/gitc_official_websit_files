@@ -162,6 +162,7 @@
   .zhanziti{font-size: 12px}
 
   .bj-banner-btn {
+    color: #000;
     position: fixed;
     width: 60px;
     height: 60px;
@@ -173,7 +174,8 @@
     font-weight: 800;
     right: 40px;
     padding-top: 10px;
-    box-shadow: 0 0 20px 2px #ccc;
+    box-shadow: 0 0 13px 2px #ccc;
+    cursor: pointer;
   }
   .bj-banner-btn>div {
     line-height: 20px;
@@ -215,10 +217,10 @@
     <div>购票</div>
   </div>
     
-  <div class="bj-banner-btn bottom" id="btn-awards">
-    <div>奖项</div>
-    <div>评选</div>
-  </div>
+  <a class="bj-banner-btn bottom" id="btn-awards">
+    <div>大会</div>
+    <div>直播</div>
+  </a>
   <header class="navbar-fixed-top s-header js__header-sticky js__header-overlay">
     <div class="s-header__navbar">
       <div class="s-header__container">
@@ -744,9 +746,21 @@
     );
   </script>
   <script>
+    
+    $.ajax({
+      url: 'http://120.92.10.182:8000/api/video/70/list.json?token=1afb756d16740266efde290917ca1a8e',
+      dataType: 'json'
+    }).done(function (result) {
+        var url = result.data[0].url
+        $('#btn-awards').click(function(event){
+          window.location.href= url;
+          event.stopPropagation();
+        })
+    })
+    
     $(function(){
       $('#btn-awards').click(function(event){
-        window.location.href="http://bj.thegitc.com/awards";
+        window.location.href="#";
         event.stopPropagation();
       })
       $('#btn-buy-ticket').click(function(event){
