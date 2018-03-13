@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>东京站</title>
+</head>
+<body style="margin: 0;padding: 0">
+<img src="./static/img/dj/bj.png" alt=""
+     style="width: 100%;height: 100%"
+     usemap="#planetmap"
+>
+<map name="planetmap" id="planetmap">
+
+    <area
+            style="outline:none"
+            shape="rectangle"
+            coords="35,32,103,65"
+            href ="/index.html"
+            target ="_blank"
+    />
+    <area
+            style="outline:none"
+            shape="rectangle"
+            coords="0,0,1920,1078"
+            href ="https://jinshuju.net/f/x3Oji0"
+            target ="_blank"
+    />
+    <area
+            style="outline:none"
+            shape="rectangle"
+            coords="861,6423,930,6484"
+            href ="http://www.wandougongzhu.cn"
+            target ="_blank"
+    />
+
+
+    <area
+            style="outline:none"
+            shape="rectangle"
+            coords="861,6527,1045,6588"
+            target ="_blank"
+    />
+
+    <area
+            style="outline:none"
+            shape="rectangle"
+            coords="861,6629,1002,6689"
+            href ="http://www.ofidc.com"
+            target ="_blank"
+    />
+
+    <area
+            style="outline:none"
+            shape="rectangle"
+            coords="1061,6629,1214,6689"
+            target ="_blank"
+    />
+
+
+    <area
+            style="outline:none"
+            shape="rectangle"
+            coords="746,7329,904,7366"
+            href ="https://jinshuju.net/f/x3Oji0"
+            target ="_blank"
+    />
+
+
+</map>
+</body>
+
+<script type="text/javascript" src="static/js/jquery.min.js?v=5a636d7"></script>
+
+
+<script type="text/javascript">
+  adjust();
+
+  var timeout = null;//onresize触发次数过多，设置定时器
+  window.onresize = function () {
+    clearTimeout(timeout);
+    timeout = setTimeout(function () { window.location.reload(); }, 100);//页面大小变化，重新加载页面以刷新MAP
+  }
+
+  //获取MAP中元素属性
+  function adjust() {
+    var map = document.getElementById("planetmap");
+    var element = map.childNodes;
+
+    var itemNumber = element.length / 2;
+    for (var i = 0; i < itemNumber - 1; i++) {
+      var item = 2 * i + 1;
+      var oldCoords = element[item].coords;
+      var newcoords = adjustPosition(oldCoords);
+      element[item].setAttribute("coords", newcoords);
+    }
+    var test = element;
+  }
+
+  //调整MAP中坐标
+  function adjustPosition(position) {
+    var pageWidth = document.body.clientWidth;//获取页面宽度
+    var pageHeith = document.body.clientHeight;//获取页面高度
+    var imageWidth = 1920;
+    var imageHeigth = 7456;
+    var each = position.split(",");
+    for (var i = 0; i < each.length; i++) {
+      if(i < 2) {
+        each[i] = Math.round(parseInt(each[i])/ imageWidth * pageWidth ).toString();//x坐标
+      } else {
+        each[i] = Math.round(parseInt(each[i]) * pageHeith / imageHeigth).toString();//y坐标
+      }
+    }
+    //生成新的坐标点
+    var newPosition = "";
+    for (var i = 0; i < each.length; i++) {
+      newPosition += each[i];
+      if (i < each.length - 1) {
+        newPosition += ",";
+      }
+    }
+    return newPosition;
+  }
+</script>
+</html>
