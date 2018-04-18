@@ -240,6 +240,15 @@
         </div>
       </div>
     </div>
+    <div class="s-header-bg-overlay js__bg-overlay">js__trigger">
+          <span class="s-header__trigger-icon"></span>
+          <svg x="0rem" y="0rem" width="3.125rem" height="3.125rem" viewbox="0 0 54 54">
+            <circle fill="transparent" stroke="#fff" stroke-width="1" cx="27" cy="27" r="25" stroke-dasharray="157 157" stroke-dashoffset="157"></circle>
+          </svg>
+        </a></div>
+        </div>
+      </div>
+    </div>
     <div class="s-header-bg-overlay js__bg-overlay">
       <nav class="s-header__nav js__scrollbar">
         <div id="navmenu" class="container-fluid">
@@ -290,10 +299,12 @@
     <div class="swiper-wrapper">
       <div class="g-fullheight--xs g-bg-position--center swiper-slide" id="lv_open">
       </div>
-      <div class="g-fullheight--xs g-bg-position--center swiper-slide" id="awards">
-      </div>
+      <div class="g-fullheight--xs g-bg-position--center swiper-slide" id="station" style='background-size:100% 100%!important;'>
+      </div> 
       <div class="g-bg-position--center g-fullheight--xs swiper-slide">
         <div class="container"><a style="display: block; " href="sh.html"></a></div>
+      </div> 
+      <div class="g-fullheight--xs g-bg-position--center swiper-slide" id="awards">
       </div>
       <div class="g-fullheight--xs g-bg-position--center swiper-slide">
         <div class="container g-text-left--xs g-ver-center--xs">
@@ -623,6 +634,9 @@
       <div class="swiper-slide">
         <a href="http://2016gitc.thegitc.com/summary/2016-bj" target="_blank"><img class="img-responsive g-width-100-percent--xs" src="static/img/2016.jpg" alt=""/></a>
       </div>
+      <div class="swiper-slide">
+        <a href="./tokyoStation.html" target="_blank"><img class="img-responsive g-width-100-percent--xs" src="static/img/2018-4.jpg" alt=""/></a>
+      </div>
     </div>
     <a href="javascript:void(0);" class="s-swiper__arrow-v1--right s-icon s-icon--md s-icon--white-brd g-radius--circle ti-angle-right js__swiper-btn--next"></a>
     <a href="javascript:void(0);" class="s-swiper__arrow-v1--left s-icon s-icon--md s-icon--white-brd g-radius--circle ti-angle-left js__swiper-btn--prev"></a>
@@ -790,7 +804,7 @@
         window.location.href="#"
       })
       $('#awards').on('click', function(){
-        window.location.href="/tokyo.html"
+        window.location.href="./tokyoStation.html"
       })
      
     })
