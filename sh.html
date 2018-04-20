@@ -115,7 +115,7 @@
               <ul class="lv-nav-list">
                 <li><a href="live.html">VR直播</a></li>
                 <li><a href="http://mudu.tv/watch/954826">23日直播</a></li>
-                <li> <a href="http://mudu.tv/watch/952157">24日直播</a></li>     
+                <li> <a href="http://mudu.tv/watch/952157">24日直播</a></li>
               </ul>
             </li> -->
             <li><a href="http://www.kylinclub.org/" target="_blank">关于主办方</a></li>
@@ -380,7 +380,7 @@
     $(function () {
       var _day = null, _timer;
       var $space = $('#js-space'),
-        $ticket = $('#js-ticket');
+          $ticket = $('#js-ticket');
       function _set() {
         var day = Math.ceil((new Date(2017, 5, 23, 0, 0, 0).getTime() - new Date().getTime()) / (1000 * 3600 * 24));
         if (day == -2) { clearInterval(_timer); _timer = null; }
@@ -408,19 +408,15 @@
       _timer = setInterval(_set, 1000 * 60);
 
 
-
-
-
-
-      function ajaximg(urls) {
+      function ajaximg(urls,divid) {
          $.ajax(urls).then(function (v) {
-        if (0 == v.status) {
+           if (0 == v.status) {
           var rs = v.data, xml = '', _spilt = $(window).width() > 768 ? 8 : 4;
           for (var i = 0; i < rs.length; i++) {
             xml += '<p class="js-info' + (i % _spilt == 0 ? ' cll' : '') + '"><img src="' + rs[i].img.substring(1) + '" alt="" class="img-circle" data-info=\'' + JSON.stringify(rs[i]) + '\'><b>'
               + rs[i].name + '</b><span>' + rs[i].company + '<br>' + rs[i].title + '</span></p>';
           }
-          $('.swiper-container-people').html(xml);
+          divid.html(xml);
           var $box = $('#info-box');
           var timers = null;
           $box.mouseenter = $('.js-info img').mouseenter(function (event) {
@@ -459,10 +455,12 @@
       });
       }
 
-      var ulr1 = 'data/guests?type=1&count=100';
-      var ulr2 = 'data/guests?type=0&count=100';
-      ajaximg(ulr1);
-      ajaximg(ulr2)
+      var ulr1 = '/data/guests?type=1&count=100';
+      var ulr2 = '/data/guests?type=0&count=100';
+      var speaker = $("#js-speaker")
+      var guest = $("#js-guest")
+      ajaximg(ulr1,speaker);
+      ajaximg(ulr2,guest)
       // $('.js-buy-info').hover(function () {
       //   //      $('.js-left-circle').show();
       // }, function () {
