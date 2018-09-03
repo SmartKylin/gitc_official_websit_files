@@ -612,12 +612,12 @@
   </div>
 
   <div class="s-swiper js__swiper-latest">
-    <div class="row g-row-col--0 swiper-wrapper">
+    <div class="row g-row-col--0 swiper-wrapper" id="review-swiper-wrapper">
       <div class="swiper-slide">
         <a href="shhg.html" target="_blank"><img class="img-responsive g-width-100-percent--xs" src="static/img/2017sh.jpg" alt=""/></a>
       </div>
       <div class="swiper-slide">
-        <a href="http://bj.thegitc.com/news" target="_blank"><img class="img-responsive g-width-100-percent--xs" src="static/img/2017bj.png" alt=""/></a>
+        <a href="http://bj2017.thegitc.com/news" target="_blank"><img class="img-responsive g-width-100-percent--xs" src="static/img/2017bj.png" alt=""/></a>
       </div>
       <div class="swiper-slide">
         <a href="tokyoStation.html" target="_blank"><img class="img-responsive g-width-100-percent--xs" src="static/img/2018-4.jpg" alt=""/></a>
@@ -779,6 +779,28 @@
     }
     );
   </script>
+  <!--<script type="text/javascript">
+    $(function () {
+      $.ajax({
+        url: 'http://api.thegitc.com/api/gitc/img-6/list.json?token=61f93e2c862efe7c8614bbe066c846c4',
+        dataType: 'json'
+      }).then(function (v) {
+        if (0 == v.status) {
+          var rs = v.data, xml = '', _spilt = $(window).width() > 768 ? 8 : 4;
+          for (var i = 0; i < rs.length; i++) {
+            var item = rs[i]
+            // xml += '<p class="js-info' + (i % _spilt == 0 ? ' cll' : '') + '"><img src="' + rs[i].img + '" style="width:100%" alt="" class="img-circle" data-info=\'' + JSON.stringify(rs[i]) + '\'><b>'
+            // + rs[i].name + '</b><span>' + rs[i].company + '<br>' + rs[i].title + '</span></p>';
+            
+            xml += '<div class="swiper-slide"><a href="'+ item.url +'" target="_blank"><img class="img-responsive g-width-100-percent&#45;&#45;xs" src="' + item.img + '" alt=""/></a></div>'
+  
+          }
+          $('#review-swiper-wrapper').html(xml);
+        }
+      });
+    }
+    );
+  </script>-->
   <script>
     
     $.ajax({
